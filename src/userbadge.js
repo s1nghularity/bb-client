@@ -16,18 +16,6 @@ export default function UserBadge() {
     }
   }, [userData.balance]);
 
-  useEffect(() => {
-    const refresh = async () => {
-      const updatedUserData = await fetch('https://bb-server-8r19.onrender.com/refreshuserbadge', { method: 'POST' });
-      const newUserData = await updatedUserData.json();
-      setUser({
-        ...user,
-        balance: newUserData.balance
-      });
-    };
-
-    refresh();
-  }, []);
 
   if (!user) {
     return null;
