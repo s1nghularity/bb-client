@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+.alldatacard {
+  width: 30rem;
+  height: 100%;
+  background-color: forestgreen;
+  color: cream;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+}
+
+
+
+.card-header {
+  font-size: 20px;
+  margin: 0 0 16px 0;
+}
+
+.card-body {
+  font-size: 14px;
+  margin: 2px 0 1px 0;
+
+}
+
+.cardbodydata {
+  font-size: 14px;
+  margin: 2px 0 1px 0;
+  background-color: rgb(110, 249, 110);
+  color: wheat;
+
+}
+
+.card-footer {
+  margin-top: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  height: 200px; 
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.user-badge.hidden {
+  display: none;
+}
+
+.user-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #999;
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 1;
+}
+
+.welcome-message {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.balance {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #036f1d;
+}
+
+
+.logout-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  background-color: #00d95e;
+}
+
+
+
+
+
+
+
+
+
+
+#tooltip {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  display: none;
+}
+
+#tooltip[data-show] {
+  display: block;
+}
+
+#arrow, #arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+#arrow {
+  visibility: hidden;
+}
+
+#arrow::before {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+
+#tooltip[data-popper-placement^='top'] > #arrow {
+  bottom: -4px;
+}
+
+#tooltip[data-popper-placement^='bottom'] > #arrow {
+  top: -4px;
+}
+
+#tooltip[data-popper-placement^='left'] > #arrow {
+  right: -4px;
+}
+
+#tooltip[data-popper-placement^='right'] > #arrow {
+  left: -4px;
+}
+
+.animated-title {
+  animation: titleAnimation 3s linear infinite;
+  width: auto;
+}
+
+@keyframes titleAnimation {
+  0% {
+    color: red;
+  }
+  25% {
+    color: orange;
+  }
+  50% {
+    color: yellow;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: blue;
+  }
+}
