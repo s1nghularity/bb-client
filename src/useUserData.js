@@ -15,12 +15,12 @@ const useUserData = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [setUserData]);
 
   useEffect(() => {
     const fetchBalance = async () => {
       const result = await axios(
-        `https://bb-server-8r19.onrender.com/users/${userData._id || userData.id}`
+        `https://bb-server-8r19.onrender.com/alldata/${userData._id || userData.id}`
       );
 
       setUserData(result.data);
