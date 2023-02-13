@@ -27,7 +27,7 @@ const useUserData = () => {
       setUserData(result.data.data);
     };
     fetchBalance();
-  }, [userData.balance]);
+  }, [setUserData]);
 
   const logOut = () => {
     window.localStorage.removeItem('token');
