@@ -9,25 +9,24 @@ const useUserData = () => {
     const fetchUserData = async () => {
       const result = await axios.post('https://bb-server-8r19.onrender.com/userData', {
         token: window.localStorage.getItem('token'),
-        data: userData,
       });
       setUserData(result.data.data);
       setLoading(false);
     };
 
     fetchUserData();
-  }, [setUserData]);
+  }, []);
 
   useEffect(() => {
     const fetchBalance = async () => {
       const result = await axios(
-        `https://bb-server-8r19.onrender.com/alldata/}`
+        `https://bb-server-8r19.onrender.com/users/${userData._id || userData.id}`
       );
 
-      setUserData(result.data.data);
+      setUserData(result.data);
     };
     fetchBalance();
-  }, [setUserData]);
+  }, [userData.balance]);
 
   const logOut = () => {
     window.localStorage.removeItem('token');
