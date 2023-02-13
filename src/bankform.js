@@ -77,7 +77,7 @@ function BankForm({ bgcolor, label, handle, successButton }) {
       setIsError(false);
       handle({ name, email, password, balance });
   
-      // send data to userRegister endpoint with fetch
+      // send data to register endpoint with fetch
       fetch("https://bb-server-8r19.onrender.com/register", {
         method: "POST",
         crossDomain: true,
