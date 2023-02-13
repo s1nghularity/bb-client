@@ -55,6 +55,7 @@ function BankForm({ bgcolor, label, handle, successButton }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [balance, setBalance] = React.useState(100, []);
+  const [id, setId] = React.useState()
   const [isError, setIsError] = React.useState(true);
   const [errors, setError] = React.useState({
     nameError: "",
@@ -75,7 +76,7 @@ function BankForm({ bgcolor, label, handle, successButton }) {
     if (isValidName && isValidEmail && isValidPassword) {
       console.log("conditions met, isError is false");
       setIsError(false);
-      handle({ name, email, password, balance });
+      handle([{ id, name, email, password, balance }]);
   
       // send data to register endpoint with fetch
       fetch("https://bb-server-8r19.onrender.com/register", {
@@ -86,7 +87,7 @@ function BankForm({ bgcolor, label, handle, successButton }) {
           Accept: "application/json",
           "Access-Control-Allow-Origin": "*",
         },
-        body: JSON.stringify({ name, email, password, balance }),
+        body: JSON.stringify({id, name, email, password, balance }),
       })
         .then((response) => response.json())
         .then((data) => {
