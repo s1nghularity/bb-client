@@ -12,7 +12,7 @@ function CreateAccount() {
 
 function Account() {
     const { user, setUser } = useUserContext();
-    let nextId = 1;
+    let nextId =+ 1;
     function handle(data) {
         if (typeof user === 'undefined') {
             setUser([]);
@@ -20,7 +20,7 @@ function Account() {
         setUser([
             ...user,
             {
-                id: nextId + 1,
+                id: nextId,
                 name: data.name,
                 email: data.email,
                 password: data.password,
@@ -28,6 +28,8 @@ function Account() {
                 transactionHistory: []
             },
         ]);
+
+        console.log(user);
 
         return true;
     }

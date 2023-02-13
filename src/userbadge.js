@@ -9,10 +9,10 @@ export default function UserBadge() {
 
   useEffect(() => {
     if (user) {
-      setUser({
+      setUser([{
         ...user,
         balance: userData.balance
-      });
+      }]);
     }
   }, [userData.balance]);
 
