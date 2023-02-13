@@ -2,49 +2,38 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useUserData = () => {
-  const [userData, setUserData] = useState([{}]);
-  const [balance, setBalance] = useState();
-  const [loading, setLoading] = useState();
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const response = await fetch('https://bb-server-8r19.onrender.com/userData', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-        body: JSON.stringify({
-          token: window.localStorage.getItem('token'),
-        }),
+      const result = await axios.post('https://bb-server-8r19.onrender.com/userData', {
+        token: window.localStorage.getItem('token'),
       });
-      const data = await response.json();
-      
-      setUserData(data.data);
-      setBalance(data.data.balance);
+      setUserData(result.data.data);
+      setLoading(false);
     };
 
     fetchUserData();
   }, []);
 
-  const refetch = async () => {
-    setLoading(true);
-    const result = await axios (
-      `https://bb-server-8r19.onrender.com/users/${userData._id || userData.id}`
-    );
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const result = await axios(
+        `https://bb-server-8r19.onrender.com/users/${userData._id || userData.id}`
+      );
 
-    setUserData(result.data);
-    setBalance(result.data.balance);
-    setLoading(false);
-  }; 
+      setUserData(result.data);
+    };
+    fetchBalance();
+  }, [userData.balance]);
 
   const logOut = () => {
     window.localStorage.removeItem('token');
     window.location.reload();
   };
 
-  return { userData, balance, logOut, refetch };
+  return { userData, logOut, loading };
 };
 
 export default useUserData;
