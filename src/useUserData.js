@@ -9,6 +9,7 @@ const useUserData = () => {
     const fetchUserData = async () => {
       const result = await axios.post('https://bb-server-8r19.onrender.com/userData', {
         token: window.localStorage.getItem('token'),
+        data: userData,
       });
       setUserData(result.data.data);
       setLoading(false);
@@ -20,10 +21,10 @@ const useUserData = () => {
   useEffect(() => {
     const fetchBalance = async () => {
       const result = await axios(
-        `https://bb-server-8r19.onrender.com/alldata/${userData._id || userData.id}`
+        `https://bb-server-8r19.onrender.com/alldata/}`
       );
 
-      setUserData(result.data);
+      setUserData(result.data.data);
     };
     fetchBalance();
   }, [userData.balance]);
