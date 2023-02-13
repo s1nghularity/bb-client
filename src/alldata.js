@@ -31,7 +31,7 @@ function AllData() {
                 {user.transactionHistory ? (
                   user.transactionHistory.map((transaction, id) => (
                     <div key={id}>
-                      {transaction.type} ${transaction.amount} {transaction.date}
+                      <b>{transaction.type} ${transaction.amount}</b> <i>{transaction.date}</i>
                     </div>
                   ))
                 ) : (
