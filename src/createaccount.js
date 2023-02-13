@@ -14,19 +14,20 @@ function Account() {
     const { user, setUser } = useUserContext();
     let nextId = 1;
     function handle(data) {
-        setUser(
-            [
-                ...user,
-                {
-                    id: nextId + 1,
-                    name: data.name,
-                    email: data.email,
-                    password: data.password,
-                    balance: 100,
-                    transactionHistory: []
-                },
-            ]
-        );
+        if (typeof user === 'undefined') {
+            setUser([]);
+        }
+        setUser([
+            ...user,
+            {
+                id: nextId + 1,
+                name: data.name,
+                email: data.email,
+                password: data.password,
+                balance: 100,
+                transactionHistory: []
+            },
+        ]);
 
         return true;
     }
