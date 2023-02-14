@@ -54,7 +54,7 @@ function Deposit() {
       <Card style={{ width: '15rem', margin: 'auto', marginTop: '2rem' }}>
         <CardHeader style={{ width: '15rem' }}>
           <h2> <b> DEPOSIT </b></h2>
-          <h6 style={{ textAlign: 'center' }}><i> {userData.name}'s <br/>Current Balance: <b> ${userData.balance.newTotal}</b></i></h6>
+          <h6 style={{ textAlign: 'center' }}><i> {userData.name}'s <br/>Current Balance: <b> ${userData.balance}</b></i></h6>
         </CardHeader>
         
         <form onSubmit={handleSubmit}>
