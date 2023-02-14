@@ -7,7 +7,7 @@ const useUserData = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       const result = await axios.post('https://bb-server-8r19.onrender.com/userData', {
-        token: window.localStorage.getItem('token'), data: {}
+        token: window.localStorage.getItem('token'),
       });
       setUserData(result.data.data);
       
