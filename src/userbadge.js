@@ -17,7 +17,6 @@ export default function UserBadge() {
   }, [userData]);
 
   return (
-    <UserContext.Provider value={{ user }}>
     <div className='user-badge'>
       <p className='welcome-message'>
         Welcome, <strong>{userData.name}</strong>
@@ -29,6 +28,5 @@ export default function UserBadge() {
         Log Out
       </Button>
     </div>
-    </UserContext.Provider>
   );
 }
