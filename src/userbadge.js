@@ -6,14 +6,18 @@ import { Button } from 'reactstrap';
 export default function UserBadge() {
   const { userData, logOut } = useUserData();
   const { user, setUser } = useContext(UserContext);
-
-  useEffect(() => {
+  
+  const updateBadge = () => {
     if (user) {
       setUser([{
         ...user,
         balance: userData.balance
       }]);
     }
+  }
+
+  useEffect(() => {
+    updateBadge();
   }, [userData]);
 
   return (
