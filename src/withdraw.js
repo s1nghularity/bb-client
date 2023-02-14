@@ -5,7 +5,7 @@ import { Card, CardHeader } from 'reactstrap';
 import axios from 'axios';
 
 function Withdraw() {
-  const { refetch, userData } = useUserData();
+  const { userData } = useUserData();
   const { user } = useUserContext(UserContext);
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState(false);
@@ -46,7 +46,7 @@ function Withdraw() {
       .then(async (res) => {
         console.log(res.data);
         setSuccess('Withdrawal successful');
-        await useUserData.refetch();
+      
       })
       .catch((err) => console.error(err));
   };

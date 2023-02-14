@@ -5,7 +5,7 @@ import { Card, CardHeader } from 'reactstrap';
 import axios from 'axios';
 
 function Deposit() {
-  const { refetch, userData } = useUserData();
+  const { userData } = useUserData();
   const { user, setUser } = useUserContext(UserContext);
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState(false);
@@ -44,13 +44,9 @@ function Deposit() {
     .then(async (res) => {
       console.log(res.data);
       setSuccess('Deposit successful');
-      await userData.refetch();
-    })
+      })
     .catch((err) => console.error(err));
 };
-
-        
-
 
   
   return (
@@ -58,7 +54,7 @@ function Deposit() {
       <Card style={{ width: '15rem', margin: 'auto', marginTop: '2rem' }}>
         <CardHeader style={{ width: '15rem' }}>
           <h2> <b> DEPOSIT </b></h2>
-          <h6 style={{ textAlign: 'center' }}><i> {userData.name}'s <br/>Current Balance: <b> ${userData.balance}</b></i></h6>
+          <h6 style={{ textAlign: 'center' }}><i> {userData.name}'s <br/>Current Balance: <b> ${userData.balance.newTotal}</b></i></h6>
         </CardHeader>
         
         <form onSubmit={handleSubmit}>
