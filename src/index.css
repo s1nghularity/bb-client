@@ -21,7 +21,47 @@ code {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+
+.alldatacard .delete-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: darkred;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.alldatacard:hover .delete-button {
+  background-color: firebrick;
+}
+
+.alldatacard .delete-button.clicked {
+  transform: rotate(360deg);
+}
+
+.alldatacard.clicked {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
 
 .card-container {
   display: grid;
