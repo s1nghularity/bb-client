@@ -13,7 +13,7 @@ code {
 }
 
 
-
+@media only screen and (max-width: 768px) {
 .alldatacard {
   width: 30rem;
   height: 100%;
@@ -24,6 +24,10 @@ code {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 
+}
+
+.learnmore {
+  flex-direction: column;
 }
 
 .card-container {
@@ -183,4 +187,5 @@ code {
   100% {
     color: blue;
   }
+}
 }

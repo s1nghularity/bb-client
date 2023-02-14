@@ -11,7 +11,7 @@ export default function Home(props){
   const toggle = () => setModal(!modal);
 
   return (  
-<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', flexDirection: 'column' }}>
 
     <Card style={{backgroundColor: 'rebeccapurple', color: 'whitesmoke', width: "18rem",}}>
     <img alt="Bank Company Logo" src={bank} />
@@ -27,7 +27,7 @@ export default function Home(props){
 
     </Card>
 
-    <Button color="info" size ='sm' outline onClick={toggle} style={{ marginLeft: '20px' }}>
+    <Button className = 'learnmore' color="info" size ='sm' outline onClick={toggle} style={{ marginLeft: '20px' }}>
             Learn More
     </Button>
     <Modal isOpen={modal} toggle={toggle} {...props}>
