@@ -11,7 +11,7 @@ export default function Home(props){
   const toggle = () => setModal(!modal);
 
   return (  
-<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', flexDirection: 'column' }}>
+<div style={{ display: 'flex', justifyContent: 'center', height: '100%', flexDirection: 'column'}}>
 
     <Card style={{backgroundColor: 'rebeccapurple', color: 'whitesmoke', width: "18rem",}}>
     <img alt="Bank Company Logo" src={bank} />
@@ -26,14 +26,15 @@ export default function Home(props){
     </CardBody>
 
     </Card>
-
-    <Button className = 'learnmore' color="info" size ='sm' outline onClick={toggle} style={{ marginLeft: '20px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+    <Button color="info" size ='sm' onClick={toggle} style={{ marginLeft: '20px' }}>
             Learn More
     </Button>
+    </div>
     <Modal isOpen={modal} toggle={toggle} {...props}>
       <ModalHeader toggle={toggle}>Capstone Project</ModalHeader>
       <ModalBody>
-        This is a capstone project for a Full Stack Web Development course at the Massachusetts Institute of Technology. It uses React, Node.js, Express, and MongoDB. The project is a mock bank website that allows users to create an account, login, deposit, and withdraw money. The project also includes an unprotected mock admin page that allows anyone to view all users and their balances.
+        This is a capstone project for a Full Stack Web Development course at the Massachusetts Institute of Technology. It uses React, Node.js, Express, and MongoDB. The project is a mock bank website that allows users to create an account, login, deposit, and withdraw money. The project also includes an unprotected admin page that allows anyone to view all users and their balances.
       </ModalBody>
       <ModalFooter>
         <Button  tag={Link}
