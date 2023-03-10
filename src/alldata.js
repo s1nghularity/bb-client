@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Card, CardBody, CardFooter, CardHeader } from 'reactstrap';
 import axios from 'axios';
+import {TiDelete} from 'react-icons/ti';
+import 'animate.css'
 
 function AllData() {
   const [users, setUsers] = useState([{}]);
@@ -16,9 +18,18 @@ function AllData() {
   }, []);
 
   const handleDeleteUser = (id) => {
+    const cardIndex = users.findIndex((user) => user._id === id);
+    const cardElement = document.getElementsByClassName('alldatacard')[cardIndex];
+  
     axios.delete(`https://bb-server-8r19.onrender.com/deleteuser/${id}`)
       .then(() => {
-        setUsers(users.filter(user => user._id !== id));
+        const newUsers = users.filter(user => user._id !== id);
+        setUsers(newUsers);
+  
+        cardElement.classList.add('animate__zoomOutDown', 'fade-out')
+        cardElement.addEventListener('animationend', () => {
+          cardElement.remove();
+        });
       })
       .catch(error => console.log(error));
   }
@@ -26,15 +37,19 @@ function AllData() {
   return (
     <div className="card-container">
       {users.map((user, index) => (
+
         <Card key={index} className='alldatacard' style={{ width: 'auto' }}>
-          <button className="delete-button" onClick={() => handleDeleteUser(user._id)}>X</button>
+
           <CardHeader style={{ width: 'auto' }}>
             {user.name} <br/> <h6>{user.email}</h6>
+
+            <div className="delete-button" 
+              onClick={() => handleDeleteUser(user._id)}> 
+            <TiDelete size={45}/>
+            </div>
+          
           </CardHeader>
           <CardBody className='cardbodydata'>
-            <h6><i>Current Balance:<h4>${user.balance}</h4></i></h6>
-          </CardBody>
-          <CardFooter className='card-footer'>
             Transactions:
             {user.transactionHistory ? (
               user.transactionHistory.map((transaction, id) => (
@@ -45,9 +60,13 @@ function AllData() {
             ) : (
               <div>No transaction history found</div>
             )}
+          </CardBody>
+          <CardFooter className='card-footer'>
+          <h6><i>Current Balance: <b>${user.balance}</b></i></h6>
           </CardFooter>
         </Card>
       ))}
+
     </div>
   );
 }
