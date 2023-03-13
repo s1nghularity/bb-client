@@ -76,12 +76,12 @@ const Login = () => {
       </div>
 
  
-        <button type='submit' className='btn btn-primary' >
-          Submit
+        <button type='submit' className='btn btn-primary' style={{marginTop:'1rem' }} >
+          Log In
         </button>
 
-      <p className='forgot-password text-right'>
-        <a href='/createaccount'>Sign Up</a>
+      <p className='forgot-password text-right' style={{marginTop:'1rem' }}>
+        <a href='/createaccount'>Don't have an account? <br/>Sign up today!</a>
       </p>
     </form>
     </Card>

@@ -51,7 +51,7 @@ function Deposit() {
   
   return (
     <UserContext.Provider value={{ user }}>
-      <Card style={{ width: '15rem', margin: 'auto', marginTop: '2rem' }}>
+      <Card style={{ width: '15rem', margin: 'auto', marginTop: '2rem', paddingBottom:'1rem' }}>
         <CardHeader style={{ width: '15rem' }}>
           <h2> <b> DEPOSIT </b></h2>
           <h6 style={{ textAlign: 'center' }}><i> {userData.name}'s <br/>Current Balance: <b> ${userData.balance}</b></i></h6>
@@ -71,7 +71,7 @@ function Deposit() {
             {success && <div className='alert alert-success'>{success}</div>}
           </div>
 
-          <button disabled={!amount} type='submit' className='btn btn-success'>
+          <button disabled={!amount} type='submit' className='btn btn-success' style={{marginTop:'1rem' }}>
             Deposit
           </button>
         </form>

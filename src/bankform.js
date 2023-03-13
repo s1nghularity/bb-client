@@ -48,9 +48,8 @@ function validatePassword(password) {
 
 //SIGN-UP COMPONENT TO BE PASSED TO CREATEACCOUNT 
 
-function BankForm({ bgcolor, label, handle, successButton }) {
+function BankForm({ label, handle, successButton }) {
   const [show, setShow] = React.useState(true);
-  const [status, setStatus] = React.useState("");
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -98,9 +97,9 @@ function BankForm({ bgcolor, label, handle, successButton }) {
     } else {
       setIsError(true);
       setError({
-        nameError: isValidName ? "" : "invalid name",
-        emailError: isValidEmail ? "" : "invalid email",
-        passwordError: isValidPassword ? "" : "invalid password",
+        nameError: isValidName ? "" : "Name cannot contain numbers.",
+        emailError: isValidEmail ? "" : "Invalid email address.",
+        passwordError: isValidPassword ? "" : "Password must be at least 8 characters.",
       });
     }
   }
@@ -114,9 +113,9 @@ function BankForm({ bgcolor, label, handle, successButton }) {
   }
   return (
     <div>
-      <Card style={{ width: '18rem', margin: 'auto', marginTop: '2rem' }}>
+      <Card style={{ width: '18rem', margin: 'auto', marginTop: '2rem' }}className="bank-form">
         <CardBody>
-          <CardHeader style={{ width: 'auto', background: 'rebeccapurple' }}>
+          <CardHeader style={{ width: 'auto', background: '#f8a000' }}>
           <CardTitle tag="h5" style={{width: 'auto', color:'white'}}><b>Create Account</b></CardTitle>
           </CardHeader>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -179,8 +178,7 @@ function BankForm({ bgcolor, label, handle, successButton }) {
             <div>
               <h3>
                 Thank you for creating an account with BadBank! Here's $100 just
-                for signing up. This is just on of the many benefits of doing
-                business with BadBank.
+                for signing up.
               </h3>
               <br />
             </div>

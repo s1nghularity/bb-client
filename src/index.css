@@ -14,7 +14,38 @@ code {
     monospace;
 }
 
+div.App {
+  background-image: url(piggy.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(1000px);
+}
 
+
+
+.alldatacard {
+  opacity: 0.8;
+}
+
+.home-card{
+  opacity: 0.9;
+  padding-bottom: 10rem;
+}
+
+.home-card h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+html body div#root div.App div div div.bank-form.card div.card-body {
+  padding: 0;
+  margin-bottom: 1rem;
+
+
+}
+  
 
 
 .navbar-brand {

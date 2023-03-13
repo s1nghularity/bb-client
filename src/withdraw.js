@@ -79,7 +79,7 @@ function Withdraw() {
 
   return (
     <UserContext.Provider value={{ user }}>
-      <Card style={{ width: '15rem', margin: 'auto', marginTop: '2rem' }}>
+      <Card style={{ width: '15rem', margin: 'auto', marginTop: '2rem', paddingBottom:'1rem' }}>
         <CardHeader style={{ width: '15rem' }}>
           <h2>
             {' '}
@@ -106,7 +106,7 @@ function Withdraw() {
             {error && <div className='alert-danger'>{error}</div>}
             {success && <div className='alert alert-warning'>{success}</div>}
           </div>
-          <button disabled={!amount} type='submit' className='btn btn-warning'>
+          <button disabled={!amount} type='submit' className='btn btn-warning' style={{marginTop:'1rem' }}>
             Withdraw
           </button>{' '}
           <br />
