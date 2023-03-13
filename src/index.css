@@ -23,14 +23,11 @@ div.App {
   height: 100vh;
   background-image: url(piggy.jpg);
   background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
 
 }
 
-
-
-html body div#root div.App div {
-  padding-bottom: 0rem;
-}
 
 .alldatacard {
   opacity: 0.8;
