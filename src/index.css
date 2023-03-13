@@ -7,6 +7,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+
+
 }
 
 code {
@@ -15,28 +18,33 @@ code {
 }
 
 div.App {
-  background-image: url(piggy.jpg);
-  background-size: cover;
+  position: absolute;
   width: 100%;
   height: 100vh;
-  backdrop-filter: blur(1000px);
+  background-image: url(piggy.jpg);
+  background-position: center;
+
 }
 
 
+
+html body div#root div.App div {
+  padding-bottom: 0rem;
+}
 
 .alldatacard {
   opacity: 0.8;
 }
 
 .home-card{
-  opacity: 0.9;
-  padding-bottom: 10rem;
+  opacity: 0.8;
 }
 
 .home-card h5 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #ffffff;
 }
 
 html body div#root div.App div div div.bank-form.card div.card-body {
