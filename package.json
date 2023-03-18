@@ -24,6 +24,7 @@
     "react-scripts": "^5.0.1",
     "reactdom": "^2.0.0",
     "reactstrap": "^9.1.4",
+    "sass": "^1.59.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
